@@ -1,0 +1,213 @@
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #000;
+    color: white;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+
+/* Top-left Logo */
+
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    height: 50px;
+    transition: transform 0.5s ease;
+    z-index: 5;
+}
+
+.logo:hover {
+    transform: scale(1.15) rotate(5deg);
+}
+
+
+/* Center Faded Logo */
+
+.center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.03;
+    z-index: 1;
+}
+
+.center-logo img {
+    width: 400px;
+}
+
+
+/* Container */
+
+.container {
+    position: relative;
+    z-index: 3;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* Headline Typing */
+
+.headline-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.headline {
+    font-size: 3.5rem;
+    background: linear-gradient(90deg, #00ffe0, #ff00f2, #00ffe0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    width: 0;
+    display: inline-block;
+    animation: typing 3s steps(12) forwards, blink 0.7s step-end infinite, wave 5s linear infinite 3s;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 12ch;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes wave {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+
+/* Tagline */
+
+.tagline {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #aaa;
+    animation: fadeIn 2s ease-in 3s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Launch Button */
+
+.launch-button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    color: white;
+    background: #00ffe0;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.launch-button:hover {
+    background: #ff00f2;
+    transform: scale(1.05);
+}
+
+
+/* Background Nebula */
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.nebula {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.15), transparent 60%), radial-gradient(circle at 70% 70%, rgba(255, 0, 255, 0.1), transparent 60%);
+    filter: blur(80px);
+    animation: moveClouds 60s linear infinite alternate;
+}
+
+@keyframes moveClouds {
+    0% {
+        transform: translate(0%, 0%);
+    }
+    100% {
+        transform: translate(-25%, -25%);
+    }
+}
+
+
+/* Shooting Stars */
+
+.shooting-star {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(0deg, white, transparent);
+    opacity: 0.6;
+    transform: rotate(45deg);
+    animation: shoot 5s linear infinite;
+}
+
+.shooting-star.delay-1 {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.shooting-star.delay-2 {
+    left: 70%;
+    animation-delay: 4s;
+}
+
+@keyframes shoot {
+    0% {
+        top: -10px;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        top: 110%;
+        opacity: 0;
+    }
+}
